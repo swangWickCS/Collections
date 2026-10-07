@@ -42,19 +42,43 @@ public class myStack
         indx = 0;
     }
     
+    /**
+     * Checks if a stack is empty
+     * <p>
+     * returns a boolean based on the condition of the stack
+     * 
+     */
     public boolean isEmpty(){
         return indx == 0;
     }
     
+    /**
+     * Checks if a stack is full
+     * <p>
+     * returns a boolean based on the conditon of the stack
+     * 
+     */
     public boolean isFull(){
         return indx == arr.length;
     }
     
+    /**
+     * Pushes an element into the stack
+     * <p>
+     * pushed element into the first available spot in the stack
+     * 
+     * @param element the element you want to push
+     */
     public void push(int element){
         arr[indx] = element;
         indx++;
     }
     
+    /**
+     * Pops an element out of the stack
+     * <p>
+     * pops the element at the top out of the stack
+     */
     public int pop()
     {
         int temp = arr[indx - 1];
@@ -64,11 +88,18 @@ public class myStack
         return temp;
     }
     
+    /**
+     * Reads the element at the top of the stack
+     * 
+     */
     public int top()
     {
         return arr[indx - 1];
     }
     
+    /**
+     * returns the number of elements in the stack
+     */
     public int size()
     {
         return indx;
@@ -77,7 +108,7 @@ public class myStack
     public String toString(){
         String str = "";
         
-        for (int i = arr.length - 1; i >= 0; i--){
+        for (int i = this.size() - 1; i >= 0; i--){
             str += arr[i];
         }
         
