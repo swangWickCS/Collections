@@ -1,117 +1,138 @@
+import java.util.EmptyStackException;
+
 /**
  * Implement a stack ADT in the class MyStack.
-- public MyStack() – Constructs a stack that can hold 100 elements.
-- public MyStack(int maxSize) – Constructs a stack that can hold maxSize
-elements.
-- public void push(int element) – Pushes an element on to the stack.
-- public int pop() – Pops an element off of the stack.
-- public boolean isEmpty() – Indicates whether stack contains any elements.
-- public int top() – Reads the element at the top of the stack.
-- public int size() – Returns the number of elements stored in the stack.
-- public boolean isFull() – Indicates whether the stack has exhausted its available storage.
-- public String toString() – Returns the contents of the stack from top to bottom.
-
-All methods (except toString()) must operate in O(1) time.
-All code should adhere to coding standards.
+ * - public MyStack() – Constructs a stack that can hold 100 elements.
+ * - public MyStack(int maxSize) – Constructs a stack that can hold maxSize
+ * elements.
+ * - public void push(int element) – Pushes an element on to the stack.
+ * - public int pop() – Pops an element off of the stack.
+ * - public boolean isEmpty() – Indicates whether stack contains any elements.
+ * - public int top() – Reads the element at the top of the stack.
+ * - public int size() – Returns the number of elements stored in the stack.
+ * - public boolean isFull() – Indicates whether the stack has exhausted its available storage.
+ * - public String toString() – Returns the contents of the stack from top to bottom.
+ *
+ * All methods (except toString()) must operate in O(1) time.
+ * All code should adhere to coding standards.
  */
-
-public class myStack
-{
-    private int indx; //index of first empty spot
+public class myStack {
+    private int indx; // index of first empty spot
     private int[] arr;
-    
+
     /**
-     *  Constructs a stack
-     *  <p>
-     *  Constructs a stack that can hold 100 elements.
+     * Constructs a stack
+     * <p>
+     * Constructs a stack that can hold 100 elements.
      */
-    public myStack(){
+    public myStack() {
         arr = new int[100];
         indx = 0;
     }
-    
+
     /**
      * Constructs a stack
      * <p>
      * Constructs a stack that can hold maxSize elements.
-     * 
-     * @param maxSize  The maximum size of the stack
+     *
+     * @param maxSize the maximum size of the stack
      */
-    public myStack(int maxSize){
+    public myStack(int maxSize) {
         arr = new int[maxSize];
         indx = 0;
     }
-    
+
     /**
      * Checks if a stack is empty
      * <p>
      * returns a boolean based on the condition of the stack
-     * 
+     *
+     * @return true if the stack has no elements, false otherwise
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return indx == 0;
     }
-    
+
     /**
      * Checks if a stack is full
      * <p>
-     * returns a boolean based on the conditon of the stack
-     * 
+     * returns a boolean based on the condition of the stack
+     *
+     * @return true if the stack has no room left, false otherwise
      */
-    public boolean isFull(){
+    public boolean isFull() {
         return indx == arr.length;
     }
-    
+
     /**
      * Pushes an element into the stack
      * <p>
-     * pushed element into the first available spot in the stack
-     * 
+     * pushes element into the first available spot in the stack
+     *
      * @param element the element you want to push
+     * @throws IllegalStateException if the stack is full
      */
-    public void push(int element){
+    public void push(int element) {
+        if (isFull()) {
+            throw new IllegalStateException("Stack is full");
+        }
         arr[indx] = element;
         indx++;
     }
-    
+
     /**
      * Pops an element out of the stack
      * <p>
      * pops the element at the top out of the stack
+     *
+     * @return the element that was at the top of the stack
+     * @throws EmptyStackException if the stack is empty
      */
-    public int pop()
-    {
+    public int pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
         int temp = arr[indx - 1];
         arr[indx - 1] = 0;
         indx--;
-        
+
         return temp;
     }
-    
+
     /**
      * Reads the element at the top of the stack
-     * 
+     *
+     * @return the element at the top of the stack
+     * @throws EmptyStackException if the stack is empty
      */
-    public int top()
-    {
+    public int top() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
         return arr[indx - 1];
     }
-    
+
     /**
-     * returns the number of elements in the stack
+     * Returns the number of elements in the stack
+     *
+     * @return the number of elements in the stack
      */
-    public int size()
-    {
+    public int size() {
         return indx;
     }
-    
-    public String toString(){
+
+    /**
+     * Returns the contents of the stack from top to bottom
+     *
+     * @return the elements of the stack as a string, starting with the top
+     */
+    public String toString() {
         String str = "";
-        
-        for (int i = this.size() - 1; i >= 0; i--){
+
+        for (int i = this.size() - 1; i >= 0; i--) {
             str += arr[i];
         }
-        
+
         return str;
     }
 }
