@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class myQueue {
-    private int[] arr; // has one extra slot so a full queue looks different from an empty one
+public class myQueue<E> {
+    private E[] arr; // has one extra slot so a full queue looks different from an empty one
     private int front; // index of the front element
     private int back; // index of the back element
 
@@ -15,7 +15,7 @@ public class myQueue {
      * Constructs a queue that can hold 100 elements.
      */
     public myQueue() {
-        arr = new int[100 + 1];
+        arr = (E[]) new Object[100 + 1];
         front = 0;
         back = -1;
     }
@@ -26,7 +26,7 @@ public class myQueue {
      * @param maxSize the maximum number of elements the queue can hold
      */
     public myQueue(int maxSize) {
-        arr = new int[maxSize + 1];
+        arr = (E[]) new Object[maxSize + 1];
         front = 0;
         back = -1;
     }
@@ -37,7 +37,7 @@ public class myQueue {
      * @param element the element to add to the back of the queue
      * @throws IllegalStateException if the queue is full
      */
-    public void enqueue(int element) {
+    public void enqueue(E element) {
         if (isFull()) {
             throw new IllegalStateException("Queue is full");
         }
@@ -51,12 +51,12 @@ public class myQueue {
      * @return the element that was at the front of the queue
      * @throws NoSuchElementException if the queue is empty
      */
-    public int dequeue() {
+    public E dequeue() {
         if (isEmpty()) {
             throw new NoSuchElementException("Queue is empty");
         }
-        int temp = arr[front];
-        arr[front] = 0;
+        E temp = arr[front];
+        arr[front] = null;
         front = (front + 1) % arr.length;
 
         return temp;
@@ -68,7 +68,7 @@ public class myQueue {
      * @return the element at the front of the queue
      * @throws NoSuchElementException if the queue is empty
      */
-    public int front() {
+    public E front() {
         if (isEmpty()) {
             throw new NoSuchElementException("Queue is empty");
         }

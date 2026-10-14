@@ -16,9 +16,9 @@ import java.util.EmptyStackException;
  * All methods (except toString()) must operate in O(1) time.
  * All code should adhere to coding standards.
  */
-public class myStack {
+public class myStack<E> {
     private int indx; // index of first empty spot
-    private int[] arr;
+    private E[] arr;
 
     /**
      * Constructs a stack
@@ -26,7 +26,7 @@ public class myStack {
      * Constructs a stack that can hold 100 elements.
      */
     public myStack() {
-        arr = new int[100];
+        arr = (E[]) new Object[100];
         indx = 0;
     }
 
@@ -38,7 +38,7 @@ public class myStack {
      * @param maxSize the maximum size of the stack
      */
     public myStack(int maxSize) {
-        arr = new int[maxSize];
+        arr = (E[]) new Object[maxSize];
         indx = 0;
     }
 
@@ -72,7 +72,7 @@ public class myStack {
      * @param element the element you want to push
      * @throws IllegalStateException if the stack is full
      */
-    public void push(int element) {
+    public void push(E element) {
         if (isFull()) {
             throw new IllegalStateException("Stack is full");
         }
@@ -88,12 +88,12 @@ public class myStack {
      * @return the element that was at the top of the stack
      * @throws EmptyStackException if the stack is empty
      */
-    public int pop() {
+    public E pop() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        int temp = arr[indx - 1];
-        arr[indx - 1] = 0;
+        E temp = arr[indx - 1];
+        arr[indx - 1] = null;
         indx--;
 
         return temp;
@@ -105,7 +105,7 @@ public class myStack {
      * @return the element at the top of the stack
      * @throws EmptyStackException if the stack is empty
      */
-    public int top() {
+    public E top() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
