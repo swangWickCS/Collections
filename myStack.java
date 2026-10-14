@@ -35,7 +35,7 @@ public class myStack<E> {
      * <p>
      * Constructs a stack that can hold maxSize elements.
      *
-     * @param maxSize the maximum size of the stack
+     * @param maxSize maxSize the maximum size of the stack in int
      */
     public myStack(int maxSize) {
         arr = (E[]) new Object[maxSize];
@@ -69,7 +69,7 @@ public class myStack<E> {
      * <p>
      * pushes element into the first available spot in the stack
      *
-     * @param element the element you want to push
+     * @param element the element that you want to push in E
      * @throws IllegalStateException if the stack is full
      */
     public void push(E element) {

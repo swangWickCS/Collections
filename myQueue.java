@@ -23,7 +23,7 @@ public class myQueue<E> {
     /**
      * Constructs a queue that can hold maxSize elements.
      *
-     * @param maxSize the maximum number of elements the queue can hold
+     * @param maxSize the maximum number of elements the queue can hold in int
      */
     public myQueue(int maxSize) {
         arr = (E[]) new Object[maxSize + 1];
@@ -34,7 +34,7 @@ public class myQueue<E> {
     /**
      * Adds an element to the back of the queue.
      *
-     * @param element the element to add to the back of the queue
+     * @param element the element to add to the back of the queue in E
      * @throws IllegalStateException if the queue is full
      */
     public void enqueue(E element) {
