@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class myQueue<E> {
+public class MyQueue<E> {
     private E[] arr; // has one extra slot so a full queue looks different from an empty one
     private int front; // index of the front element
     private int back; // index of the back element
@@ -14,7 +14,7 @@ public class myQueue<E> {
     /**
      * Constructs a queue that can hold 100 elements.
      */
-    public myQueue() {
+    public MyQueue() {
         arr = (E[]) new Object[100 + 1];
         front = 0;
         back = -1;
@@ -25,7 +25,7 @@ public class myQueue<E> {
      *
      * @param maxSize the maximum number of elements the queue can hold in int
      */
-    public myQueue(int maxSize) {
+    public MyQueue(int maxSize) {
         arr = (E[]) new Object[maxSize + 1];
         front = 0;
         back = -1;

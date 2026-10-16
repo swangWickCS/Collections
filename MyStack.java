@@ -16,7 +16,7 @@ import java.util.EmptyStackException;
  * All methods (except toString()) must operate in O(1) time.
  * All code should adhere to coding standards.
  */
-public class myStack<E> {
+public class MyStack<E> {
     private int indx; // index of first empty spot
     private E[] arr;
 
@@ -25,7 +25,7 @@ public class myStack<E> {
      * <p>
      * Constructs a stack that can hold 100 elements.
      */
-    public myStack() {
+    public MyStack() {
         arr = (E[]) new Object[100];
         indx = 0;
     }
@@ -37,7 +37,7 @@ public class myStack<E> {
      *
      * @param maxSize maxSize the maximum size of the stack in int
      */
-    public myStack(int maxSize) {
+    public MyStack(int maxSize) {
         arr = (E[]) new Object[maxSize];
         indx = 0;
     }

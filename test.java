@@ -6,7 +6,7 @@ public class test
 {
     public static void test()
     {
-        myStack s = new myStack(3);
+        MyStack s = new MyStack(3);
 
         System.out.println("New stack:");
         System.out.println("isEmpty: " + s.isEmpty() + " (expected true)");
@@ -39,7 +39,7 @@ public class test
         System.out.println("size: " + s.size() + " (expected 0)");
         System.out.println();
 
-        myStack big = new myStack();
+        MyStack big = new MyStack();
         for (int i = 0; i < 100; i++)
         {
             big.push(i);
@@ -48,6 +48,24 @@ public class test
         System.out.println("isFull: " + big.isFull() + " (expected true)");
         System.out.println("size: " + big.size() + " (expected 100)");
         System.out.println("top: " + big.top() + " (expected 99)");
+        
+        MyQueue q = new MyQueue(5);
+        
+        System.out.println("New Queue");
+        System.out.println("isEmpty: " + q.isEmpty() + "(expected true)");
+        System.out.println("isFull: " + q.isFull() + "(expected false)");
+        System.out.println("size: " + q.size() + "(expected 0)");
+        System.out.println();
+        
+        q.enqueue(1);
+        q.enqueue(2);
+        q.enqueue(3);
+        q.enqueue(4);
+        q.enqueue(5);
+        
+        System.out.println("After pushing 5 elements:");
+        System.out.println("isEmpty: " + q.isEmpty() + "(expected false)");
+        System.out.println("isFull: " + q.isFull() + "(expected true)");
         
         
     }
